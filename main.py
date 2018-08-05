@@ -6,7 +6,6 @@ from PyQt5.Qt import QCheckBox, QLineEdit, QSpinBox
 
 def on_clicked():
     try:
-        #global a
         spi = spin.value()
         tekst.clear()
         tex = ""
@@ -20,12 +19,9 @@ def on_clicked():
         for i in range(spi):
             passw.append(random.choice(tex))
         tekst.setText("".join(passw))
-        #print(a)
-        #return a
     except:
         pass    
 def on_buff():
-    print(tekst.text())
     clipboard = QtWidgets.QApplication.clipboard()
     clipboard.setText(tekst.text())
             
