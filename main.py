@@ -6,6 +6,7 @@ from PyQt5.Qt import QCheckBox, QLineEdit, QSpinBox
 
 def on_clicked():
     try:
+        #global a
         spi = spin.value()
         tekst.clear()
         tex = ""
@@ -18,10 +19,16 @@ def on_clicked():
         passw = []
         for i in range(spi):
             passw.append(random.choice(tex))
-        tekst.setText("".join(passw))  
+        tekst.setText("".join(passw))
+        #print(a)
+        #return a
     except:
         pass    
-
+def on_buff():
+    print(tekst.text())
+    clipboard = QtWidgets.QApplication.clipboard()
+    clipboard.setText(tekst.text())
+            
 app = QtWidgets.QApplication(sys.argv)
 window = QtWidgets.QWidget()  # Создаем окно
 window.setWindowTitle("Простой генератор паролей")  # Указываем заголовок
@@ -52,12 +59,12 @@ spin.setValue(6)
 tekst = QLineEdit(window)
 tekst.resize(150, 25)
 tekst.move(20, 160)
-# tekst.setText(prop)
 
 # Кнопка буфер обмена
 buttonb = QtWidgets.QPushButton("В буфер", window)
 buttonb.resize(80, 30)
 buttonb.move(20, 210)
+buttonb.clicked.connect(on_buff)
 
 # Кнопка выход
 buttone = QtWidgets.QPushButton("Выход", window)
