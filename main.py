@@ -72,12 +72,8 @@ buttone.clicked.connect(app.quit)  # Выход из программы
 buttons = QtWidgets.QPushButton("Старт", window)
 buttons.resize(80, 30)
 buttons.move(240, 160)
-
 buttons.clicked.connect(on_clicked)
 
 window.resize(360, 260)  # Минимальные размеры
 window.show()  # Отображаем окно
 sys.exit(app.exec_())
-
-if __name__ == '__main__':
-    main()
